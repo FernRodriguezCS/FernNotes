@@ -1,0 +1,84 @@
+
+Regular Expression (Regex) 
+What is Regex?
+A regular expression is a sequence of characters that defines a search pattern. Often used for pattern matching and text processing.
+
+Anchors
+Used to match the beginning or end of a string.
+• ^ - Start of string
+	◦ ex: /^Hello/ matches "Hello world", not "Say Hello"
+• $ - End of string
+	◦ ex: /world$/ matches "Hello world", not "world peace"
+
+Character Classes
+• . - Any character except newline
+	◦ /h.t/ matches "hat","hit","hot"
+• \d - Digit ( 0 - 9 )
+	◦ /\d\d/ matches "42" in "42px"
+• \w - Word character ( a - z, A - Z, 0 - 9, _)
+	◦ /\w+/ matches "word123"
+• \s - Whitespace (space, tab, newline)
+	◦ /\s+/ matches all whitespace
+• \D, \W, \S - Negated or inverse versions
+
+Custom Character Sets
+• [abc] - Match a single a, b, or c
+	◦ /[abc]/ matches "b" in "blue"
+• [a-z] - Match any lowercase letter
+	◦ /[a-z]/ matches "h" in "hello"
+• [^abc] - Match anything except a, b, c 
+	◦ /[^0-9]/ matches non-digit characters
+
+Quantifiers
+• * - 0 or more
+	◦ /a*/ matches "", "a", "aa"
+• + - 1 or more
+	◦ /a+/ matches "a","aa", (not "")
+• ? - 0 or 1
+	◦ /a?/ matches "", "a"
+• {n} - Exactly n times
+	◦ /\d{4}/ matches "2025"
+• {n,} - At least n times
+	◦ /a{3,}/ matches "aaa", "aaaa"
+• {nm} - Between n and m times
+	◦ /a{2,4}/ matches "aa","aaa","aaaa"
+
+Grouping and Alteration
+• (abc) - Capturing group
+	◦ /(ha)+/ matches "hahaha"
+• (?:abc) - Non-capturing group
+	◦ Use for grouping without capturing
+• | - OR (alteration)
+	◦ /(cat|dog)/ matches "cat" or "dog"
+
+
+Word Boundaries
+• \b - Word boundary
+	◦ /\bword\b/ matches "word" not "wordy"
+• \B - Non-word boundary
+	◦ /\Bend/ matches "bend", not "the end"
+
+Lookaheads and Lookbehinds (JS supports lookbehinds in modern engines)
+• (?=...) - Positive lookahead
+	◦ /\d+(?=px)/ matches "20" in "20px"
+• (?!...) - Negative lookahead
+	◦ /\d+(?!px)/ matches "20" in "20em"
+• (?<=...) - Positive lookbehind
+	◦ /(?<=\$)\d+/ matches "99" in "$99"
+• (?<!...) - Negative lookbehind
+	◦ /(?<!\$)\d+/ matches "99" in "Price:99"
+
+Flags (Modifiers)
+• g - Global (find all matches)
+• i - Case-insensitive
+• m - Multiline (makes ^ and $ work across lines)
+	◦ ex: /hello/gi matches all "hello", "Hello", etc.
+
+Common Patterns (Reusable Snippets)
+• Email: /^[\w.-]+@[\w.-]+\.\w+$/
+• Phone (US): /\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/
+• URL: /https?:\/\/[^\s]+/
+• Date (MM/DD/YYYY): /\d{2}\/\d{2}\/\d{4}/
+• Hashtag:  /#\w+/g
+• Username:  /@\w+/g
+• Trim extra spaces: str.replace(/\s+/g, ' ').trim()

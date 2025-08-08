@@ -1,0 +1,69 @@
+Part 1 High-Level Architectures
+• These help organize entire applications or large-scale systems
+
+MVC (Model-View-Controller)
+• Model: Handles the data and logic
+• View: Handles what the user sees
+• Controller: Handles user input and updates model/view
+• Common in web apps (e.g., Django, Rails, Express frameworks)
+
+MVVM (Model-View-ViewModel)
+• Used mostly in frontend-heavy apps (React, Angular, SwiftUI)
+• The ViewModel sits between the view and the model, binding UI updates and logic
+
+Layered Architecture (N-tier)
+• Separates app into layers
+	◦ Presentation Layer (UI)
+	◦ Business Logic Layer
+	◦ Data Access Layer
+	◦ Database Layer
+• Enterprise and backend systems use this often
+
+Hexagonal / Ports and Adapters
+• Isolates the core business logic from external systems like databases, UIs, APIs 
+• Ideal for testing and clean separation of concerns
+
+Microservices Architecture
+• Breaks the app into small, independent services that talk via APIs
+• For large, scalable, distributed systems
+
+Part 2 Core Design Patterns
+• These are reusable code-level solutions to common problems in software design.
+• Creational Patterns (How objects are created)
+	◦ Pattern -> Use Case
+	◦ SIngleton -> Only one instance of a class (e.g., DB connection pool)
+	◦ Factory -> Delegates object creation to a method
+	◦ Abstract Factory -> Group of factories
+	◦ Builder -> Build complex objects step-by-step
+	◦ Prototype -> Clone existing objects
+• Behavioral Patterns (How objects interact)
+	◦ Pattern -> Use Case
+	◦ Observer -> Event system (e.g., React state subscriptions)
+	◦ Strategy -> Swap Algorithms at runtime
+	◦ Command -> Encapsulate a request (like undo/redo actions)
+	◦ State -> Object behavior changes with internal state
+	◦ Chain of Responsibility -> Pass request along a chain until handled
+	◦ Mediator -> Coordinates interactions between objects 
+	◦ Memento -> Snapshots for rollback (undo)
+	◦ Visitor -> Add behavior to object without modifying them
+• Structural Patterns (How to organize relationships)
+	◦ Pattern -> Use Case
+	◦ Adapter -> Interface wrapper (e.g., plug a legacy module into new system)
+	◦ Decorator -> Add features to object at runtime
+	◦ Proxy -> Placeholder for another object (e.g., lazy-loading)
+	◦ Facade -> Simplified interface to a complex system 
+	◦ Composite -> Tree structure (e.g., GUI components)
+	◦ Bridge -> Decouple abstraction from implementation
+	◦ Flyweight -> Save memory by sharing data between objects
+
+Part 3 When to Use Them
+• Situation -> Pattern
+• Need to decouple UI & logic -> MVC, MVVM
+• Need to enforce single access point -> Singleton 
+• Want to add features dynamically -> Decorator 
+• Have multiple interchangeable algorithms -> Strategy
+• Want to centralize interaction logic -> Mediator 
+• Need to encapsulate operations -> Command
+• Large system with many dependencies -> Facade, Dependency Injection
+• Need to reuse behavior across unrelated classes -> Observer
+• Complex object construction -> Builder 
